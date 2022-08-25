@@ -78,13 +78,16 @@
     6. used commands
 
         ```BASH
-        zpool create -f ssd-data /dev/sda4
+        zpool create -f ssd-data0 /dev/sda4
         # zpool create ssd-data gptid/d08b1137-4fa5-4749-bcfb-f3bd2c12eafc
         # zpool create ssd-data /dev/disk/by-partuuid/d08b1137-4fa5-4749-bcfb-f3bd2c12eafc
-        zpool export ssd-data
+        zpool export ssd-data0
         ```
 
-    7. Import ssd-data in UI
+    7. Import ssd-data0 in UI
+    8. mirror boot pool from UI on another EMPTY drive
+    9. repat steps 2.5 - 6
+
 
 6. Import data pools
     1. shutdown
