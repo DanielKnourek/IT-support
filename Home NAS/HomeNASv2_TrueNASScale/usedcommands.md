@@ -69,10 +69,12 @@ commands to create new partiton
 gdisk /dev/sda
         p
         n
+        <enter> # part number
         <enter> # first sector
         <enter> # last sector
         BF01 # type
         w
+        y
 ```
 
 find Guuid
