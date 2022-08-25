@@ -78,16 +78,15 @@
     6. used commands
 
         ```BASH
-        zpool create -f ssd-data0 /dev/sda4
-        # zpool create ssd-data gptid/d08b1137-4fa5-4749-bcfb-f3bd2c12eafc
-        # zpool create ssd-data /dev/disk/by-partuuid/d08b1137-4fa5-4749-bcfb-f3bd2c12eafc
-        zpool export ssd-data0
+        zpool create -f ssd-data00 /dev/sda4
+        # zpool create ssd-data0 gptid/d08b1137-4fa5-4749-bcfb-f3bd2c12eafc
+        # zpool create ssd-data0 /dev/disk/by-partuuid/d08b1137-4fa5-4749-bcfb-f3bd2c12eafc
+        zpool export ssd-data00
         ```
 
-    7. Import ssd-data0 in UI
+    7. Import ssd-data00 in UI
     8. mirror boot pool from UI on another EMPTY drive
     9. repat steps 2.5 - 6
-
 
 6. Import data pools
     1. shutdown
@@ -104,6 +103,60 @@
 8. Set-up SMB
     - service SMB on, auto start
     - share edit NetBios Name dakara
+
+9. install plex
+    - Apps -> Plex Media Server -> Install
+
+    1. Application Name
+        - Name - home-plex-media
+        - Version - 1.7.18
+
+    2. Plex Configuration
+        - Plex token - [claim-TykdmNPubpMYic3_jxSw]
+        - <https://www.plex.tv/claim>
+
+    3. Networking
+        - Configure Host Network - No
+        - port - 32400
+
+    4. Storage
+        - Create new dataset
+            - ssd-data0/PlexServer
+        - Transcode Volume
+            - /mnt/ssd-data0/PlexServer
+        - Data Volume
+            - /mnt/ssd-data0/PlexServer
+        - Config Volume
+            - /mnt/ssd-data0/PlexServer
+        - exstra Volume
+            Pod path
+            - /mnt/Media
+            Host Path
+            - /mnt/HomeArchive/HomeArchiveData/Media
+
+    5. Step
+        - Kill existing pods
+
+    6. Step
+        - Allocate nvidia gpu
+
+10. Installing HomeAssistant
+    1. Application Name
+        - Name - home-assistant-server
+        - Version - 1.0.29
+    2. Configuration
+        N/A
+    3. Storage
+        - Create new dataset
+            - ssd-data0/HAServer
+        - Configuration Volume
+            - /mnt/ssd-data0/HAServer
+        - Media Volume
+            - /mnt/ssd-data0/HAServer
+    4. Networking
+        - Enable host networking true
+    5. DNS
+        N/A
 
 ### System
 
