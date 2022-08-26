@@ -120,7 +120,7 @@
         7. add mask RWX
         8. create Dataset ssd-data0/app-data
         9. create Dataset ssd-data0/app-data/PlexServer
-        10. chown root:plex ; chmod 755
+        10. chown root:plex ; chmod 775
 
     1. Application Name
         - Name - plex-server
@@ -135,6 +135,7 @@
 
     4. Networking
         - service type: Simple
+        - port: 32400
     5. Storage
         - Type
             Host Path: /mnt/ssd-data0/app-data/PlexServer
@@ -147,6 +148,42 @@
     7. Permissions
         - supplimental groups: 1003 (plex)
 
+11. Installing HomeAssistant
+    - tutorial [YT](https://www.youtube.com/watch?v=l6EJyK6xO0c)
+    0. Create Dataset for media in ssd-data0
+        1. new user hauser
+        2. create Dataset ssd-data0/app-data
+        3. create Dataset ssd-data0/app-data/HomeAssistantServer
+        4. create Dataset ssd-data0/app-data/MosquittoBroker
+        5. create Dataset ssd-data0/app-data/Zigbee2mqtt
+        6. Commands
+
+        ```BASH
+        # chown root:hauser ; chmod 775
+        sudo install -d -m 0775 -o hauser -g hauser HomeAssistantServer/config/
+        ```
+
+    1. Application Name
+        - Name - home-assistant-server
+        - Version - 15.0.44
+    2. Controller
+        N/A
+    3. Container configuration
+        N/A
+    4. Networking
+        - service type: Simple
+        - port: 8123
+    5. Storage
+        - Type
+            Host Path: /mnt/ssd-data0/app-data/HomeAssistantServer/config
+    6. Ingress
+        N/A
+    7. Permissions
+        - runAsUser: 0
+        - runAsGroup: 0
+        - fsGroup 1004 (hauser)
+        - supplimental groups: 1004 (hauser)
+
 ### System
 
 - Name: Dakara
@@ -155,13 +192,14 @@
 
 - Users
 
-    | Users     | username  | password              |
-    | -----     | --------  | --------              |
-    | Root      | root      | 331927bf1a85          |
-    | WebAdmin  | admin     | 331927bf1a85          |
-    | SuperUser | lantean   | Ll123456              |
-    | MQTT      | mqtt      | mqtt                  |
-    | PLEX      | plex      | mur0xba*KNU4ptc7cnu   |
+    | Users         | username  | password              |
+    | -----         | --------  | --------              |
+    | Root          | root      | 331927bf1a85          |
+    | WebAdmin      | admin     | 331927bf1a85          |
+    | SuperUser     | lantean   | Ll123456              |
+    | MQTT          | mqtt      | mqtt                  |
+    | PLEX          | plex      | mur0xba*KNU4ptc7cnu   |
+    | HomeAssistant | hauser    | GCT2cyf!pwm6pra9zqr   |
 
     footnote  
   - Root password is = first 12 char from (Dd123456 in sha256) LOWERCASE
