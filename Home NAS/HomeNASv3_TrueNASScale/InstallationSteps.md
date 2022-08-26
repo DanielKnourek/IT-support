@@ -106,14 +106,17 @@
 
 9. install plex
     - TrueCharts/plex
-    0. Create Share pool for media in HomeArchiveData
+    0. Create Share Dataset for media in HomeArchiveData
         1. new user plex
         2. add user to permissions HomeArhiveData
         3. add mask RWX
-        4. New Pool HomeArchiveData/Media
+        4. New Dataset HomeArchiveData/Media
         5. Permission copy partent
         6. add user to permissions
         7. add mask RWX
+        8. create Dataset ssd-data0/app-data
+        9. create Dataset ssd-data0/app-data/PlexServer
+        10. chown root:plex ; chmod 755
 
     1. Application Name
         - Name - plex-server
@@ -123,12 +126,22 @@
     3. Container configuration
         - server IP: 192.168.90.21
         - image Enviroment: 192.168.0.0/16
-        - Plex token - [claim-0.0/16.0/16Yic3_jxSw]0.0/16
+        - Plex token - [claim-km_24z49ZJcFzJJHi9Eh]
             - <https://www.plex.tv/claim>
     
-    4. other
-        - aditional group 1003 (plex)
-        - storage HomeArchiveData/Media -> /media
+    4. Networking
+        - service type: Simple
+    5. Storage
+        - Type
+            Host Path: /mnt/ssd-data0/app-data/PlexServer
+        - Additional storage
+            name: media
+            Host Path: /mnt/HomeArchive/HomeArchiveData/Media
+            Mount Path: /mnt/media
+    6. Ingress
+        N/A
+    7. Permissions
+        - supplimental groups: 1003 (plex)
 
     <!-- 2. Plex Configuration
         - Plex token - [claim-TykdmNPubpMYic3_jxSw]
