@@ -141,22 +141,19 @@
         - Allocate nvidia gpu
 
 10. Installing HomeAssistant
-    1. Application Name
-        - Name - home-assistant-server
-        - Version - 1.0.29
-    2. Configuration
-        N/A
-    3. Storage
-        - Create new dataset
-            - ssd-data0/HAServer
-        - Configuration Volume
-            - /mnt/ssd-data0/HAServer
-        - Media Volume
-            - /mnt/ssd-data0/HAServer
-    4. Networking
-        - Enable host networking true
-    5. DNS
-        N/A
+    0. install catalog from //TODO
+    1. install Home Assistant
+        1. steps //TODO
+    2. create user mqtt in HA
+        - able to login
+        - only from local
+    3. install mosquitto broker
+        1. Name
+            - Name - mosquitto-broker
+            - Version - 6.0.32
+    4. install zigbee2mqtt
+            - Name - zigbee2mqtt
+            - Version - 4.0.29
 
 ### System
 
@@ -171,6 +168,7 @@
     | Root      | root      | 331927bf1a85  |
     | WebAdmin  | admin     | 331927bf1a85  |
     | SuperUser | lantean   | Ll123456      |
+    | MQTT      | mqtt      | mqtt          |
 
     footnote  
   - Root password is = first 12 char from (Dd123456 in sha256) LOWERCASE
