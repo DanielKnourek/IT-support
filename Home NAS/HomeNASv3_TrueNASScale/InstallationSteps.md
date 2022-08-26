@@ -104,7 +104,11 @@
     - service SMB on, auto start
     - share edit NetBios Name dakara
 
-9. install plex
+9. Add catalog for TrueCharts
+    - [tutorial](https://truecharts.org/docs/manual/SCALE%20Apps/Quick-Start%20Guides/Adding-TrueCharts/)
+    - truecharts; [https://github.com/truecharts/catalog](https://github.com/truecharts/catalog); stable; main
+
+10. install plex
     - TrueCharts/plex
     0. Create Share Dataset for media in HomeArchiveData
         1. new user plex
@@ -128,7 +132,7 @@
         - image Enviroment: 192.168.0.0/16
         - Plex token - [claim-km_24z49ZJcFzJJHi9Eh]
             - <https://www.plex.tv/claim>
-    
+
     4. Networking
         - service type: Simple
     5. Storage
@@ -142,50 +146,6 @@
         N/A
     7. Permissions
         - supplimental groups: 1003 (plex)
-
-    <!-- 2. Plex Configuration
-        - Plex token - [claim-TykdmNPubpMYic3_jxSw]
-        - <https://www.plex.tv/claim>
-
-    3. Networking
-        - Configure Host Network - No
-        - port - 32400
-
-    4. Storage
-        - Create new dataset
-            - ssd-data0/PlexServer
-        - Transcode Volume
-            - /mnt/ssd-data0/PlexServer
-        - Data Volume
-            - /mnt/ssd-data0/PlexServer
-        - Config Volume
-            - /mnt/ssd-data0/PlexServer
-        - exstra Volume
-            Pod path
-            - /mnt/Media
-            Host Path
-            - /mnt/HomeArchive/HomeArchiveData/Media
-
-    5. Step
-        - Kill existing pods
-
-    6. Step
-        - Allocate nvidia gpu -->
-
-10. Installing HomeAssistant
-    0. install catalog from //TODO
-    1. install Home Assistant
-        1. steps //TODO
-    2. create user mqtt in HA
-        - able to login
-        - only from local
-    3. install mosquitto broker
-        1. Name
-            - Name - mosquitto-broker
-            - Version - 6.0.32
-    4. install zigbee2mqtt
-            - Name - zigbee2mqtt
-            - Version - 4.0.29
 
 ### System
 
