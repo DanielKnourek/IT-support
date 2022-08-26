@@ -105,13 +105,32 @@
     - share edit NetBios Name dakara
 
 9. install plex
-    - Apps -> Plex Media Server -> Install
+    - TrueCharts/plex
+    0. Create Share pool for media in HomeArchiveData
+        1. new user plex
+        2. add user to permissions HomeArhiveData
+        3. add mask RWX
+        4. New Pool HomeArchiveData/Media
+        5. Permission copy partent
+        6. add user to permissions
+        7. add mask RWX
 
     1. Application Name
-        - Name - home-plex-media
-        - Version - 1.7.18
+        - Name - plex-server
+        - Version - 10.1.3
+    2. Controller
+        N/A
+    3. Container configuration
+        - server IP: 192.168.90.21
+        - image Enviroment: 192.168.0.0/16
+        - Plex token - [claim-0.0/16.0/16Yic3_jxSw]0.0/16
+            - <https://www.plex.tv/claim>
+    
+    4. other
+        - aditional group 1003 (plex)
+        - storage HomeArchiveData/Media -> /media
 
-    2. Plex Configuration
+    <!-- 2. Plex Configuration
         - Plex token - [claim-TykdmNPubpMYic3_jxSw]
         - <https://www.plex.tv/claim>
 
@@ -138,7 +157,7 @@
         - Kill existing pods
 
     6. Step
-        - Allocate nvidia gpu
+        - Allocate nvidia gpu -->
 
 10. Installing HomeAssistant
     0. install catalog from //TODO
@@ -163,12 +182,13 @@
 
 - Users
 
-    | Users     | username  | password      |
-    | -----     | --------  | --------      |
-    | Root      | root      | 331927bf1a85  |
-    | WebAdmin  | admin     | 331927bf1a85  |
-    | SuperUser | lantean   | Ll123456      |
-    | MQTT      | mqtt      | mqtt          |
+    | Users     | username  | password              |
+    | -----     | --------  | --------              |
+    | Root      | root      | 331927bf1a85          |
+    | WebAdmin  | admin     | 331927bf1a85          |
+    | SuperUser | lantean   | Ll123456              |
+    | MQTT      | mqtt      | mqtt                  |
+    | PLEX      | plex      | mur0xba*KNU4ptc7cnu   |
 
     footnote  
   - Root password is = first 12 char from (Dd123456 in sha256) LOWERCASE
