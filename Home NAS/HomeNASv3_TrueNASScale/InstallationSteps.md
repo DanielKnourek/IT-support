@@ -149,6 +149,7 @@
         - supplimental groups: 1003 (plex)
 
 11. Installing HomeAssistant
+    a) HAos
     - tutorial [YT](https://www.youtube.com/watch?v=l6EJyK6xO0c)
     0. Create Dataset for media in ssd-data0
         1. new user hauser
@@ -161,6 +162,9 @@
         ```BASH
         # chown root:hauser ; chmod 775
         sudo install -d -m 0775 -o hauser -g hauser HomeAssistantServer/config/
+        sudo install -d -m 0775 -o hauser -g hauser MosquittoBroker/config/
+        sudo install -d -m 0775 -o hauser -g hauser MosquittoBroker/data/
+        sudo install -d -m 0775 -o hauser -g hauser Zigbee2mqtt/data/
         ```
 
     1. Application Name
@@ -184,6 +188,45 @@
         - fsGroup 1004 (hauser)
         - supplimental groups: 1004 (hauser)
 
+    b) Installing HomeAssistant
+    1. Application Name
+        - Name - mosquitto
+        - Version - 6.0.32
+    2. Controller
+        N/A
+    3. Container configuration
+        N/A
+    4. App configuration
+        Authentication enabled: true
+    5. Networking
+        - service type: Simple
+        - port: 1883
+    6. Storage
+        - Type
+            Host Path: /mnt/ssd-data0/app-data/HomeAssistantServer/config
+    7. Ingress
+        N/A
+    8. Permissions
+        - runAsUser: 568
+        - runAsGroup: 568
+        - fsGroup 568
+        - supplimental groups: 1004 (hauser)
+    9. start and connect to shell
+
+        ```BASH
+        Mosquitto_passwd -c /mosquitto/configinc/app.properties mqtt_user
+        # RomBmddT3iVUGKUYqNDA
+        cd /mosquitto/configinc/
+        echo "password_file /mosquitto/configinc/app.properties" > passwordconfig.conf
+        ```
+
+    10. restart mosquitto
+    11. in HA add integration MQTT
+        - Broker: mosquitto.ix-mosquitto.svc.cluster.local
+        - Port: 1883
+        - credetials: mqtt_user
+
+
 ### System
 
 - Name: Dakara
@@ -200,6 +243,7 @@
     | MQTT          | mqtt      | mqtt                  |
     | PLEX          | plex      | mur0xba*KNU4ptc7cnu   |
     | HomeAssistant | hauser    | GCT2cyf!pwm6pra9zqr   |
+    | mosquitto     | mqtt_user | RomBmddT3iVUGKUYqNDA  |
 
     footnote  
   - Root password is = first 12 char from (Dd123456 in sha256) LOWERCASE
