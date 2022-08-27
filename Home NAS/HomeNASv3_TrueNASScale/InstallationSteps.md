@@ -226,6 +226,50 @@
         - Port: 1883
         - credetials: mqtt_user
 
+    c) Installing zigbee2mqtt
+    0. Find CC2531 id
+
+    ```BASH
+    ls -l /dev/serial/by-id
+    # usb-Texas_Instruments_TI_CC2531_USB_CDC___0X00124B001CD4EA72-if00
+    # /dev/ttyACM0
+    ```
+
+    1. Application Name
+        - Name - zigbee2mqtt
+        - Version - 4.0.29
+    2. Controller
+        N/A
+    3. Container configuration
+        - credentials: mqtt_user
+        - PERMIT_JOIN: false
+        - MQTT server: mqtt://mosquitto.ix-mosquitto.svc.cluster.local
+        - serial_port: /dev/ttyACM0
+    4. Networking
+        - service type: Simple
+        - port: 10103
+    5. Storage
+        - Type
+            Host Path: /mnt/ssd-data0/app-data/Zigbee2mqtt/data
+    6. Ingress
+        N/A
+    7. Permissions
+        - supplimental groups: 1004 (hauser)
+    8. Resources and Devices
+        - Mount USB
+            - HOST: /dev/serial/by-id/usb-Texas_Instruments_TI_CC2531_USB_CDC___0X00124B001CD4EA72-if00
+            - CONTAINER: /dev/ttyACM0
+    <!-- 9. Open controlls of zigbee2mqtt
+        - Settings->Advanced->Zigbee channel = 20 -->
+    9. in dakara shell
+
+        ```BASH
+        vi /mnt/ssd-data0/app-data/Zigbee2mqtt/data/configuration.yaml
+            advanced:
+                channel: 20
+                network_key: GENERATE
+
+        ```
 
 ### System
 
