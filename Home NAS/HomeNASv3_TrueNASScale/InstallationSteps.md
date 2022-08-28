@@ -259,7 +259,7 @@
         - Mount USB
             - HOST: /dev/serial/by-id/usb-Texas_Instruments_TI_CC2531_USB_CDC___0X00124B001CD4EA72-if00
             - CONTAINER: /dev/ttyACM0
-    <!-- 9. Open controlls of zigbee2mqtt
+        <!-- 9. Open controlls of zigbee2mqtt
         - Settings->Advanced->Zigbee channel = 20 -->
     9. in dakara shell
 
@@ -270,6 +270,25 @@
                 network_key: GENERATE
 
         ```
+    
+    d)
+    Installing Tuya integration //TODO
+    https://www.home-assistant.io/integrations/tuya
+    https://iot.tuya.com/cloud/basic?id=p1661574705703gsryae&region=EU&toptab=application&authorizeTab=0
+    IoT cloud Account: Dev.danielknourek@gmail.com
+    Tuya smart App account: domov1912@gmail.com
+
+    e)
+    Installing Tapo integration //TODO
+    remove ssd-data0/app-data/HomeAssistantServer/Tapo  //TODO
+    1. Authorize HACS
+        - Goto HA -> Intergrations -> add HACS -> authorize git
+    2. goto HACS -> Add repository -> Tapo Controller (1.2.14)
+    3. restart HA
+    4. add integration
+        - Goto HA -> Intergrations -> add tapo_p100
+        - Host: 192.168.90.92 (smart plug P110 IP, found in app)
+        - TPlinkcloud credentials: daniel.knourek@gmail.com:EUY-wfu7bfv.tkx7vca
 
 ### System
 
