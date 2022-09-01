@@ -270,15 +270,8 @@
                 network_key: GENERATE
 
         ```
-    
-    d)
-    Installing Tuya integration //TODO
-    https://www.home-assistant.io/integrations/tuya
-    https://iot.tuya.com/cloud/basic?id=p1661574705703gsryae&region=EU&toptab=application&authorizeTab=0
-    IoT cloud Account: Dev.danielknourek@gmail.com
-    Tuya smart App account: domov1912@gmail.com
 
-    e)
+    d)
     Installing Tapo integration //TODO
     remove ssd-data0/app-data/HomeAssistantServer/Tapo  //TODO
     1. Authorize HACS
@@ -289,6 +282,69 @@
         - Goto HA -> Intergrations -> add tapo_p100
         - Host: 192.168.90.92 (smart plug P110 IP, found in app)
         - TPlinkcloud credentials: daniel.knourek@gmail.com:EUY-wfu7bfv.tkx7vca
+
+    e)
+    0. Online OLD way
+        Installing Tuya integration
+        <https://www.home-assistant.io/integrations/tuya>
+        <https://iot.tuya.com/cloud/basic?id=p1661574705703gsryae&region=EU&toptab=application&authorizeTab=0>
+        <https://github.com/rospogrigio/localtuya/>
+        IoT cloud Account: Dev.danielknourek@gmail.com
+        Tuya smart App account: domov1912@gmail.com
+    1. goto HACS -> Add repository -> Local Tuya (4.0.1)
+    2. restart HA
+    3. add integration
+        - Goto HA -> Intergrations -> add Local Tuya
+        - Client and Secret are found in Tuya IoT platform for project
+        - User ID is found in tab Devices -> Link Tuya App Account -> UID
+
+12. Installing ZeroTier VPN
+
+    a) ZeroTier
+    1. Application Name
+        - Name - zerotier
+        - Version - 2.0.27
+    2. Controller
+        N/A
+    3. Container configuration
+        API secret: ZeroTier.com
+        Identity Public: NONE
+        Identity Secret: NONE
+    4. Networking
+        - service type: Simple
+        - port: 10190
+    5. Storage
+        - Type
+            Host Path: /mnt/ssd-data0/app-data/ZeroTier
+    6. Ingress
+        N/A
+
+    7. ssh into container
+
+        ```BASH
+        zerotier-cli join 3efa5cb78af21270
+        ```
+
+    b) Traefik
+    0. Changing default ports to custom
+    HTTP 80 -> 81
+    HTTPS 443 -> 444
+    1. Application Name
+        - Name - traefik
+        - Version - 13.3.1
+    2. Controller
+        N/A
+    3. Container configuration
+        N/A
+    4. App configuration
+        N/A
+    5. Networking
+        - web Entrypoint Configuration
+            - Port 80
+        - websecure Entrypoints Configuration
+            - Port 443
+    6. Ingress
+        N/A
 
 ### System
 
