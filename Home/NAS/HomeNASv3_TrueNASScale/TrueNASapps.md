@@ -31,3 +31,28 @@
             N/A
     3. Login into Pi-Hole
         1. Tools -> Update Gravity
+
+2. Traefik
+    1. Setup
+        1. Application Name
+            - Name - traefik
+            - Version - 13.4.5
+        2. Controller
+            - Extra Args
+                - --experimental.plugins.traefik-ondemand-plugin.modulename=github.com/acouvreur/traefik-ondemand-plugin
+                - --experimental.plugins.traefik-ondemand-plugin.version=v1.3.0
+                - --providers.kubernetesingress.allowEmptyServices=true
+        3. Container configuration
+            N/A
+        4. App configuration
+            N/A
+        5. Networking
+            - Entrypoints Port (Dashboard): 9000
+            - web Entrypoints conf
+                - Port: 80
+            - websecure Entrypoints
+                - Port: 443
+        6. Ingress
+            N/A
+        7. Security
+            N/A
