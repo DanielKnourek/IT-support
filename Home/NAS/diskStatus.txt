@@ -1,0 +1,34 @@
+SCRUB
+Status: FINISHED
+Errors: 0
+Date: 2022-12-11 00:00:03
+Name
+Read
+Write
+Checksum
+Status
+HomeArchive
+0
+0
+0
+DEGRADED
+RAIDZ1
+0
+0
+0
+DEGRADED
+sdb
+0
+0
+0
+ONLINE
+sdc
+34
+0
+0
+FAULTED
+sdd
+0
+0
+0
+ONLINE
