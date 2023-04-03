@@ -22,3 +22,6 @@ Now I'm able to read serial with:
 sudo screen /dev/ttyACM0
 
 Hope it helps!
+
+YT video 
+<https://www.youtube.com/watch?v=I2jOuLU4o8E>
