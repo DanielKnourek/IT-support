@@ -4,3 +4,6 @@
 [submodule "Tools/customPolarstepsIntegrate"]
 	path = Tools/customPolarstepsIntegrate
 	url = https://github.com/DanielKnourek/customPolarstepsIntegrate
+[submodule "Other/AIZA"]
+	path = Other/AIZA
+	url = https://github.com/davidvancl/AIZA_Hackathon2019
