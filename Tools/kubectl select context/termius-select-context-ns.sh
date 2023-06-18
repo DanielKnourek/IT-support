@@ -1,0 +1,1 @@
+ls ~/select-context-ns.sh || wget -qO ~/select-context-ns.sh https://raw.githubusercontent.com/DanielKnourek/IT-support/main/Tools/kubectl%20select%20context/select-context-ns.sh && sudo bash ~/select-context-ns.sh
