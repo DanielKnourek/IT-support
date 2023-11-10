@@ -7,3 +7,6 @@
 [submodule "Other/AIZA"]
 	path = Other/AIZA
 	url = https://github.com/davidvancl/AIZA_Hackathon2019
+[submodule "dakara-SmartHome"]
+	path = dakara-SmartHome
+	url = https://github.com/DanielKnourek/dakara-SmartHome.git
