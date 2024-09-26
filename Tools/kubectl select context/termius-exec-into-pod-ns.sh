@@ -1,1 +1,2 @@
 ls ~/exec-into-pod-ns.sh || wget -qO ~/exec-into-pod-ns.sh https://raw.githubusercontent.com/DanielKnourek/IT-support/main/Tools/kubectl%20select%20context/select-context-ns.sh && sudo bash ~/exec-into-pod-ns.sh
+ls ~/exec-into-pod-ns.sh || wget -qO ~/exec-into-pod-ns.sh https://raw.githubusercontent.com/DanielKnourek/IT-support/main/Tools/kubectl%20select%20context/exec-into-pod-ns.sh && sudo bash ~/exec-into-pod-ns.sh
