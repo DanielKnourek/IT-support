@@ -77,4 +77,7 @@ choice=$?
 # echo "Choosen index = $choice"
 # echo "        value = ${options[$choice]}"
 
-k3s kubectl exec -it ${options[$choice]} -- /bin/bash
+read -p "Choose shell [/bin/bash] " shell_bin
+shell_bin=${shell_bin:-/bin/bash}
+
+k3s kubectl exec -it ${options[$choice]} -- $shell_bin
