@@ -82,4 +82,4 @@ choice=$?
 read -p "Choose shell [/bin/bash] " shell_bin
 shell_bin=${shell_bin:-/bin/bash}
 
-docker exec -it ${options[$choice]} -- $shell_bin
+docker exec -it ${options[$choice]} $shell_bin
